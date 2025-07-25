@@ -44,7 +44,6 @@ export default function Query() {
         const fetchClients = async () => {
             try {
                 const res = await request.listAll({ entity: 'client' });
-                console.log("res - fetchCLients : ", res)
                 const clientOptions = res?.result?.map(client => ({
                     label: client.name,
                     value: client._id

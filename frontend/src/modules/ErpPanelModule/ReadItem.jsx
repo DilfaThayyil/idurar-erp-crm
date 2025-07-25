@@ -277,8 +277,20 @@ export default function ReadItem({ config, selectedItem }) {
         <Divider />
       </Row>
       {itemslist.map((item) => (
-        <Item key={item._id} item={item} currentErp={currentErp}></Item>
+        <div key={item._id}>
+          <Item item={item} currentErp={currentErp} />
+          {item.itemNote && (
+            <Row>
+              <Col span={24}>
+                <p style={{ fontStyle: 'italic', color: '#666', marginTop: -10, marginBottom: 10, marginLeft: 8 }}>
+                  📝 Note: {item.itemNote}
+                </p>
+              </Col>
+            </Row>
+          )}
+        </div>
       ))}
+
       <div
         style={{
           width: '300px',
