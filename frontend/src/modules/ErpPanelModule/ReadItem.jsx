@@ -130,7 +130,6 @@ export default function ReadItem({ config, selectedItem }) {
       console.error("Invoice ID is missing.");
       return;
     }
-    console.log("id : ", id)
     const notes = itemslist.map((item) => item.itemNote).filter(Boolean);
     if (notes.length === 0) {
       setSummary('No notes available to summarize.');
@@ -138,7 +137,6 @@ export default function ReadItem({ config, selectedItem }) {
     }
     setGenerating(true);
     const result = await request.generateInvoiceSummary({ id });
-    console.log("result : ",result)
     setSummary(result.summary);
     setGenerating(false);
   };
